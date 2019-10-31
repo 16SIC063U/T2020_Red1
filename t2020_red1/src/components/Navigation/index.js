@@ -24,7 +24,7 @@ const NavigationAuth = props => {
 
     const mightModeToggle = { background: "#00252C", color: "#F4D680" };
 
-    const daymode = { background: "#f8f9fa", color: "gray" };
+    const daymode = { background: "#f8f9fa", color: "gray"};
     const dayModeLink = { color: "gray" };
     const nightModeLink = { background: "#00252C", color: "#F4D680" };
 
@@ -191,42 +191,36 @@ const NavigationNonAuth = () => {
         }
     };
 
-    return (
-        <nav>
-            <div className="navWide">
-                <ul className="navbar-nav">
-                    <h2 className="navbar-brand">Expense Manager</h2>
-                </ul>
-                <div className="wideDiv">
-                    {/* <Link
+    if(!sessionStorage.getItem("userData")){
+        return (
+            <nav>
+                <div className="navWide">
+                    <ul className="navbar-nav">
+                        <h2 className="navbar-brand">Expense Manager</h2>
+                    </ul>
+                    <div className="wideDiv">
+                        {/* <Link
                         className={`nav-link ${window.location.pathname === "/signin" ? "active" : "inactive"}`}
                         to={routes.SIGN_IN}
                     >
                         Sign In
                     </Link> */}
 
-                    <Link
-                        className={`nav-link ${window.location.pathname === "/shop" ? "active" : "inactive"}`}
-                        to={routes.SHOP}
-                    >
-                        Shop
-                    </Link>
-
-                    <Link
-                        className={`nav-link ${window.location.pathname === "/" ? "active" : "inactive"}`}
-                        to={routes.SIGN_IN}
-                    >
-                        Sign In
-                    </Link>
+                        <Link
+                            className={`nav-link ${window.location.pathname === "/" ? "active" : "inactive"}`}
+                            to={routes.SIGN_IN}
+                        >
+                            Sign In
+                        </Link>
+                    </div>
                 </div>
-            </div>
-            <div className="navNarrow">
-                <i className="fa fa-bars fa-2x" onClick={burgerToggle} />
-                <ul className="navbar-nav">
-                    <h2 className="navbar-brand">Expense Manager</h2>
-                </ul>
-                <div className="narrowLinks">
-                    {/* <Link
+                <div className="navNarrow">
+                    <i className="fa fa-bars fa-2x" onClick={burgerToggle} />
+                    <ul className="navbar-nav">
+                        <h2 className="navbar-brand">Expense Manager</h2>
+                    </ul>
+                    <div className="narrowLinks">
+                        {/* <Link
                         className={`nav-link ${window.location.pathname === "/signin" ? "active" : "inactive"}`}
                         to={routes.SIGN_IN}
                         onClick={burgerToggle}
@@ -234,24 +228,52 @@ const NavigationNonAuth = () => {
                         Sign In
                     </Link> */}
 
-                    <Link
-                        className={`nav-link ${window.location.pathname === "/shop" ? "active" : "inactive"}`}
-                        to={routes.SHOP}
+                        <Link
+                            className={`nav-link ${window.location.pathname === "/" ? "active" : "inactive"}`}
+                            to={routes.SIGN_IN}
+                            onClick={burgerToggle}
+                        >
+                            Sign In
+                        </Link>
+                    </div>
+                </div>
+            </nav>
+        );
+    }else{
+        return (
+            <nav>
+                <div className="navWide">
+                    <ul className="navbar-nav">
+                        <h2 className="navbar-brand">Expense Manager</h2>
+                    </ul>
+                    <div className="wideDiv">
+                        {/* <Link
+                        className={`nav-link ${window.location.pathname === "/signin" ? "active" : "inactive"}`}
+                        to={routes.SIGN_IN}
                     >
-                        Shop
-                    </Link>
+                        Sign In
+                    </Link> */}
+                    </div>
+                </div>
 
-                    <Link
-                        className={`nav-link ${window.location.pathname === "/" ? "active" : "inactive"}`}
+                <div className="navNarrow">
+                    <i className="fa fa-bars fa-2x" onClick={burgerToggle} />
+                    <ul className="navbar-nav">
+                        <h2 className="navbar-brand">Expense Manager</h2>
+                    </ul>
+                    <div className="narrowLinks">
+                        {/* <Link
+                        className={`nav-link ${window.location.pathname === "/signin" ? "active" : "inactive"}`}
                         to={routes.SIGN_IN}
                         onClick={burgerToggle}
                     >
                         Sign In
-                    </Link>
+                    </Link> */}
+                    </div>
                 </div>
-            </div>
-        </nav>
-    );
+            </nav>
+        );
+    }
 };
 
 const Navigation = ({ authUser, settings }) => {
