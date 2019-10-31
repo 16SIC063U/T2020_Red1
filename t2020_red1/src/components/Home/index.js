@@ -1,49 +1,39 @@
 import React, { Component } from "react";
-import { getCustomerID } from "../../services";
+
+import ExpenseTable from "./ExpenseTable.js";
+import AddExpensePopup from "./AddExpensePopup";
+import Cards from "./Cards";
+import GenerateExcel from "./GenerateExcel";
+import Loader from "./../Common/Loader";
+
+import MobileExpenseTable from "./MobileExpenseTable";
+
+import * as analytics from "./../../analytics/analytics";
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            showPopup: false,
-            convertedCurrency: null,
-            userID: "",
-            username: JSON.parse(sessionStorage.getItem("userData")),
-        };
+
+        this.state = { showPopup: false, convertedCurrency: null };
     }
 
-    componentDidMount() {
-        var userName = (this.state.username).split("@dbs.com");
-        getCustomerID(userName[0], (res)=>{
-            if(!res.err){
-                this.setState({
-                    loading: false,
-                    error: false,
-                    customerId: res.customerId
-                })
-            }
-            else{
-                this.setState({
-                    loading: false,
-                    error: true,
-                })
-            }
-        })
+    togglePopup() {
+        this.setState({
+            showPopup: !this.state.showPopup
+        });
+    }
+
+    getProps() {
+        return JSON.stringify(this.props.user);
     }
 
     render() {
         return(
             <div>
-                {
-                    (this.state.username)
-                    ?
-                    "Hello World "+ this.state.username
-                    :
-                    "Please Try Again!"
-                }
+            
             </div>
         )
-    }
+   }
 }
 
 export default HomePage;
