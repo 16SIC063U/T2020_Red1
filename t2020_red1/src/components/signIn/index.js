@@ -143,8 +143,6 @@ class SignInForm extends Component {
                             <hr />
                             <p> Sign up to create an account - and start managing your expenses </p>
                             <hr />
-                            <iframe src="https://ghbtns.com/github-btn.html?user=YogeshPrasanna&repo=expense-manager-react&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-                            <iframe src="https://ghbtns.com/github-btn.html?user=YogeshPrasanna&repo=expense-manager-react&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-6 ">
@@ -166,126 +164,9 @@ class SignInForm extends Component {
                                     Sign In
                                 </button>
 
-                                <p>
-                                    {" "}
-                                    <Link to={routes.PASSWORD_FORGET}>Forgot password?</Link>
-                                </p>
-
-                                <hr />
-
-                                <div type="button" onClick={this.callGoogleSignIn} className="googleSignIn">
-                                    <span className="googleLogo">
-                                        <i className="fa fa-google" />
-                                    </span>{" "}
-                                    Sign in with google
-                                </div>
-
                                 {error && <p>{error.message}</p>}
                             </form>
-                            <SignUpLink />
                         </div>
-                    </div>
-                </div>
-                <div className="row landing-home-section" style={fullHeight}>
-                    <div className="col-sm-12 col-md-8" style={areaPadding}>
-                        {window.screen.width > 720 ? (
-                            <img src={homeScreen} style={homeImgStyle} />
-                        ) : (
-                                <img src={homeMobile} style={homeImgStyle} width="auto" height="auto" />
-                            )}
-                    </div>
-                    <div className="col-sm-12 col-md-4">
-                        <div className="landing-home-section-title">
-                            Simplest way to manage personal finances. <hr />
-                            Yes your money matters.
-                        </div>
-                    </div>
-                </div>
-                <div className="row landing-month-section" style={fullHeight}>
-                    <div className="col-sm-12 col-md-4" style={areaPadding}>
-                        <div className="landing-home-section-title">Peek View Of your monthly Spendings</div>
-                    </div>
-                    <div className="col-sm-12 col-md-8" style={areaMonthPadding}>
-                        {window.screen.width > 720 ? (
-                            <img src={monthScreen} style={homeImgStyle} />
-                        ) : (
-                                <img src={monthMobile} style={homeImgStyle} width="auto" height="auto" />
-                            )}
-                    </div>
-                </div>
-                <div className="row landing-stats-section" style={fullHeight}>
-                    <div className="col-sm-12 col-md-8" style={areaPadding}>
-                        {window.screen.width > 720 ? (
-                            <img src={statisticsScreen} style={homeImgStyle} />
-                        ) : (
-                                <img src={statsMobile} style={homeImgStyle} width="auto" height="auto" />
-                            )}
-                    </div>
-                    <div className="col-sm-12 col-md-4">
-                        <div className="landing-home-section-title" style={{ fontSize: "2.7em" }}>
-                            The whole picture in one place. <hr />
-                            Understand how you're spending your money with easy-to-read graphs.
-                        </div>
-                    </div>
-                </div>
-                <div className="row landing-savings-section" style={fullHeight}>
-                    <div className="col-sm-12 col-md-4" style={{ padding: "0 0 0 7%" }}>
-                        <div className="landing-home-section-title">
-                            Keep track on your savings to meet your financial goals.
-                        </div>
-                    </div>
-                    <div className="col-sm-12 col-md-8" style={areaMonthPadding}>
-                        {window.screen.width > 720 ? (
-                            <img src={savingsScreen} style={homeImgStyle} />
-                        ) : (
-                                <img src={monthMobile} style={homeImgStyle} width="auto" height="auto" />
-                            )}
-                    </div>
-                </div>
-                {window.screen.width > 720 ? (
-                    <div className="row landing-mobile-section" style={fullHeight}>
-                        <div className="col-sm-12 col-md-9" style={{ padding: "2%" }}>
-                            <img
-                                src={homeMobile}
-                                style={{ ...homeImgStyle, margin: "15px", width: "27%" }}
-                                width="auto"
-                                height="auto"
-                            />
-                            <img
-                                src={monthMobile}
-                                style={{ ...homeImgStyle, margin: "15px", width: "27%" }}
-                                width="auto"
-                                height="auto"
-                            />
-                            <img
-                                src={statsMobile}
-                                style={{ ...homeImgStyle, margin: "15px", width: "27%" }}
-                                width="auto"
-                                height="auto"
-                            />
-                        </div>
-                        <div className="col-sm-12 col-md-3">
-                            <div className="landing-home-section-title" style={{ fontSize: "2.7em" }}>
-                                Expense Manager is a progressive Web application <hr />
-                                This can be used even as an app in mobile
-                            </div>
-                        </div>
-                    </div>
-                ) : (
-                        <div />
-                    )}
-                <div className="row landing-travel-section" style={fullHeight}>
-                    <div className="col-sm-12 col-md-4" style={{ padding: "0 0 0 7%" }}>
-                        <div className="landing-home-section-title" style={{ fontSize: "2.7em" }}>
-                            Travel Ready <hr /> Never Worry We'll Convert your travel currency to your native currency
-                        </div>
-                    </div>
-                    <div className="col-sm-12 col-md-8" style={areaMonthPadding}>
-                        {window.screen.width > 720 ? (
-                            <img src={travel} style={{ ...homeImgStyle, boxShadow: "none" }} />
-                        ) : (
-                                <img src={travel} style={{ ...homeImgStyle, boxShadow: "none" }} width="300" height="300" />
-                            )}
                     </div>
                 </div>
             </div>

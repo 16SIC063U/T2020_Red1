@@ -59,7 +59,7 @@ export const getCustomerDetails = (customerId, callback) => {
 // Get Transaction Details
 export const getTransactionDetails = (accountId, fromDate, toDate, callback) => {
 	//Regex Validation
-	if(!accountId.match(/.+/)){
+	if(!accountId.toString().match(/.+/g)){
 		return {OK: false}
 	}
 
