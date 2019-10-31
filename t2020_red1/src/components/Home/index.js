@@ -8,22 +8,12 @@ class HomePage extends Component {
             showPopup: false,
             convertedCurrency: null,
             userID: "",
+            username: JSON.parse(sessionStorage.getItem("userData")),
         };
     }
 
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
-    }
-
     componentDidMount() {
-        var userName = (this.props.user.email).split("@dbs.com");
-        this.setState({
-            user: userName[0],
-        });
-        console.log(userName[0]);
-
+        var userName = (this.state.username).split("@dbs.com");
         getCustomerID(userName[0], (res)=>{
             if(!res.err){
                 this.setState({
@@ -45,15 +35,15 @@ class HomePage extends Component {
         return(
             <div>
                 {
-                    (this.state.customerId)
+                    (this.state.username)
                     ?
-                    "Hello "+this.state.customerId
+                    "Hello World "+ this.state.username
                     :
-                    "Hello User"
+                    "Please Try Again!"
                 }
             </div>
         )
-   }
+    }
 }
 
 export default HomePage;
