@@ -1,20 +1,14 @@
 import React, { Component } from "react";
-
-import ExpenseTable from "./ExpenseTable.js";
-import AddExpensePopup from "./AddExpensePopup";
-import Cards from "./Cards";
-import GenerateExcel from "./GenerateExcel";
-import Loader from "./../Common/Loader";
-
-import MobileExpenseTable from "./MobileExpenseTable";
-
-import * as analytics from "./../../analytics/analytics";
+import { getCustomerID } from "../../services";
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
-
-        this.state = { showPopup: false, convertedCurrency: null };
+        this.state = { 
+            showPopup: false,
+            convertedCurrency: null,
+            userID: "",
+        };
     }
 
     togglePopup() {
@@ -23,18 +17,40 @@ class HomePage extends Component {
         });
     }
 
-    getProps() {
-        return JSON.stringify(this.props.user);
+    componentDidMount() {
+        var userName = (this.props.user.email).split("@dbs.com");
+        this.setState({
+            user: userName[0],
+        });
+        console.log(userName[0]);
+
+        getCustomerID(userName[0], (res)=>{
+            if(!res.err){
+                this.setState({
+                    loading: false,
+                    error: false,
+                    customerId: res.customerId
+                })
+            }
+            else{
+                this.setState({
+                    loading: false,
+                    error: true,
+                })
+            }
+        })
     }
 
     render() {
         return(
             <div>
-            {
-                (this.props.user)?
-                this.props.user
-                : "Hi"
-            }
+                {
+                    (this.state.customerId)
+                    ?
+                    "Hello "+this.state.customerId
+                    :
+                    "Hello User"
+                }
             </div>
         )
    }
