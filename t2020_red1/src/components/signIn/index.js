@@ -91,7 +91,7 @@ class SignInForm extends Component {
                     this.setState(() => ({ ...INITIAL_STATE }));
                     history.push(routes.HOME);
                 } else {
-                    history.push(routes.USER_VERIFICATION);
+                    //history.push(routes.USER_VERIFICATION);
                 }
             })
             .catch(error => {
