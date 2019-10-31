@@ -87,11 +87,11 @@ class SignInForm extends Component {
         auth.doSignInWithEmailAndPassword(email.trim(), password)
             .then(authUser => {
                 // allow signin only when user is verified
-                if (authUser && authUser.emailVerified) {
+                if (authUser) {
                     this.setState(() => ({ ...INITIAL_STATE }));
                     history.push(routes.HOME);
                 } else {
-                    history.push(routes.USER_VERIFICATION);
+                    //history.push(routes.USER_VERIFICATION);
                 }
             })
             .catch(error => {
