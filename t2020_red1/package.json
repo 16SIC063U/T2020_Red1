@@ -4,30 +4,46 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "react": "^16.11.0",
-    "react-bootstrap": "^1.0.0-beta.14",
-    "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "chart.js": "^2.7.1",
+    "chartjs-plugin-labels": "^1.1.0",
+    "firebase": "^4.13.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-chartjs-2": "^2.7.2",
+    "react-color": "^2.17.0",
+    "react-datepicker": "^1.5.0",
+    "react-dom": "^16.4.1",
+    "react-ga": "^2.5.3",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.8",
+    "trianglify": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "description": "*_I have stopped support for this application , if you run npm install , you might run into errors for not having latest versions of firebase , hence i advice to download the node modules in this project to run it locally_*",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YogeshPrasanna/expense-manager-react.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YogeshPrasanna/expense-manager-react/issues"
+  },
+  "homepage": "https://github.com/YogeshPrasanna/expense-manager-react#readme"
 }
