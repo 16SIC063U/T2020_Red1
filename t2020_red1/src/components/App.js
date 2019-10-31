@@ -9,28 +9,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/css/index.css";
 import "../assets/css/signin.css";
 
-import Navigation from "./Navigation/index";
 //import LandingPage from "./Landing/index";
 import SignUpPage from "./signUp/index";
 import SignInPage from "./signIn/index";
-import ShopPage from "./Shop/index";
-import PasswordForgetPage from "./forgotPassword/index";
 import HomePage from "./Home/index";
-import UpdatePassword from "./Settings/UpdatePassword";
-import MonthViewPage from "./MonthView/index";
-import DailyViewPage from "./DailyView/index";
-import FilterViewPage from "./FilterView/index";
-import UserVerification from "./UserVerification/index";
-import StatisticsPage from "./Statistics/index";
-import LoanPage from "./Loan/index";
-import SettingsPage from "./Settings/index";
-import SavingsPage from "./Savings/index";
-import ErrorPage from "./Error/index";
 
 import * as routes from "../constants/routes";
 import * as db from "../firebase/db";
 import * as utils from "./Util";
 import * as analytics from "./../analytics/analytics";
+import Navigation from "./Navigation";
 
 class App extends Component {
     constructor(props) {
@@ -70,17 +58,6 @@ class App extends Component {
                         users: snapshot.val()
                     });
                 });
-
-                // get and set expenses in db
-                //  firebase.db
-                //      .ref("expenses")
-                //      .on("value", data => {
-                //          if (data) {
-                //              this.setState({
-                //                  expenses: data.val()
-                //              });
-                //          }
-                //      });
 
                 // get all the settings
                 firebase.db.ref(`settings/${this.state.authUser.uid}`).on("value", data => {
@@ -278,116 +255,14 @@ class App extends Component {
                 <div style={bodyStyle}>
                     <Navigation authUser={this.state.authUser} settings={this.state.settings} />
                     <Switch>
-                    {/* <Route exact path={routes.LANDING} component={() => <SignInPage />} /> */}
-                    <Route exact path={routes.SIGN_UP} component={() => <SignUpPage />} />
                     <Route exact path={routes.SIGN_IN} component={() => <SignInPage />} />
-                    <Route exact path={routes.SHOP} component={() => <ShopPage />} />
-
-                    <Route exact path={routes.PASSWORD_FORGET} component={() => <PasswordForgetPage />} />
-                    <Route
-                        exact
-                        path={routes.UPDATE_PASSWORD}
-                        component={() => <UpdatePassword user={this.state.authUser} />}
-                    />
-                    <Route exact path={routes.USER_VERIFICATION} component={() => <UserVerification />} />
                     <Route
                         exact
                         path={routes.HOME}
                         component={() => (
                             <HomePage
-                                user={this.state.authUser}
-                                expenses={this.state.expenses}
-                                settings={this.state.settings}
-                                cards={cards}
+                                user={JSON.parse(sessionStorage.getItem("userData"))}
                             />
-                        )}
-                    />
-                    <Route
-                        exact
-                        path={routes.MONTH_VIEW}
-                        component={() => (
-                            <MonthViewPage
-                                user={this.state.authUser}
-                                expenses={this.state.expenses}
-                                settings={this.state.settings}
-                                cards={cards}
-                            />
-                        )}
-                    />
-
-                    <Route
-                        exact
-                        path={routes.DAILY_VIEW}
-                        component={() => (
-                            <DailyViewPage
-                                user={this.state.authUser}
-                                expenses={this.state.expenses}
-                                settings={this.state.settings}
-                                cards={cards}
-                            />
-                        )}
-                    />
-
-                    <Route
-                        exact
-                        path={routes.FILTER_VIEW}
-                        component={() => (
-                            <FilterViewPage
-                                user={this.state.authUser}
-                                expenses={this.state.expenses}
-                                settings={this.state.settings}
-                                cards={cards}
-                            />
-                        )}
-                    />
-                    <Route
-                        exact
-                        path={routes.STATISTICS_VIEW}
-                        component={() => (
-                            <StatisticsPage
-                                user={this.state.authUser}
-                                expenses={this.state.expenses}
-                                settings={this.state.settings}
-                                cards={cards}
-                            />
-                        )}
-                    />
-                    <Route
-                        exact
-                        path={routes.LOAN_VIEW}
-                        component={() => (
-                            <LoanPage
-                                user={this.state.authUser}
-                                loans={this.state.loans}
-                                settings={this.state.settings}
-                                cards={cards}
-                            />
-                        )}
-                    />
-
-                    <Route
-                        exact
-                        path={routes.SETTINGS_VIEW}
-                        component={() => (
-                            <SettingsPage user={this.state.authUser} settings={this.state.settings} cards={cards} />
-                        )}
-                    />
-
-                    <Route
-                        exact
-                        path={routes.SAVINGS_VIEW}
-                        component={() => (
-                            <SavingsPage
-                                user={this.state.authUser}
-                                savings={this.state.savings}
-                                settings={this.state.settings}
-                            />
-                        )}
-                    />
-
-                    <Route
-                        component={() => (
-                            <ErrorPage />
                         )}
                     />
                     </Switch>
