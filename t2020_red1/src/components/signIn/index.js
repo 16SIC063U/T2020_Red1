@@ -87,7 +87,7 @@ class SignInForm extends Component {
         auth.doSignInWithEmailAndPassword(email.trim(), password)
             .then(authUser => {
                 // allow signin only when user is verified
-                if (authUser && authUser.emailVerified) {
+                if (authUser) {
                     this.setState(() => ({ ...INITIAL_STATE }));
                     history.push(routes.HOME);
                 } else {
@@ -138,12 +138,10 @@ class SignInForm extends Component {
                     <div className="col-sm-12 col-md-6" style={areaPadding}>
                         <div className="landing">
                             <img src={logo} style={imgStyle} width="auto" height="100" />
-                            <span>Expense Manager which takes note of all your daily expenses</span>
+                            <span>DBS SaveLah!</span>
                             <hr />
-                            <p> Sign up to create an account - and start managing your expenses </p>
+                            <p> Log in and start working towards your financial future! </p>
                             <hr />
-                            <iframe src="https://ghbtns.com/github-btn.html?user=YogeshPrasanna&repo=expense-manager-react&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-                            <iframe src="https://ghbtns.com/github-btn.html?user=YogeshPrasanna&repo=expense-manager-react&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-6 ">
@@ -265,8 +263,7 @@ class SignInForm extends Component {
                         </div>
                         <div className="col-sm-12 col-md-3">
                             <div className="landing-home-section-title" style={{ fontSize: "2.7em" }}>
-                                Expense Manager is a progressive Web application <hr />
-                                This can be used even as an app in mobile
+                                DBS SaveLah! is also available as a mobile app! <hr />
                             </div>
                         </div>
                     </div>
