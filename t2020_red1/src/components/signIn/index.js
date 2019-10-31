@@ -89,8 +89,8 @@ class SignInForm extends Component {
                 // allow signin only when user is verified
                 if (authUser) {
                     this.setState(() => ({ ...INITIAL_STATE }));
-                    history.push(routes.HOME);
                     sessionStorage.setItem('userData', JSON.stringify(email))
+                    history.push(routes.HOME);
                 } else {
                     history.push(routes.USER_VERIFICATION);
                 }
